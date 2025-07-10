@@ -106,7 +106,6 @@ class TodoViewSet(viewsets.ModelViewSet):
             permission_classes = [AllowAny]
         else:
             permission_classes = [IsAdminOrAuthorOrReadOnly]
-        # Создаем и возвращаем список объектов(экземпляров) пермишенов, вызывая конструктор каждого класса
         return [permission() for permission in permission_classes]
 
     def perform_create(self, serializer):
